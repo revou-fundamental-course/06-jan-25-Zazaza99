@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sintesis</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <style>
+       .container1 {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .form-container, .result-container {
+            width: 48%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .form-container {
+            background-color: #f9f9f9;
+        }
+        .result-container {
+            background-color: #eef;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit1 {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit1 :hover {
+            background-color: #45a049;
+        }
+        .result-container h3 {
+            margin-top: 0;
+        }
+        .result-container .current-time {
+            font-weight: bold;
+        }
+        .result-container p {
+            margin-top: 12px;
+        }
+
+        .justify-text {
+            text-align: center;
+            background-color: rgba(204, 204, 204, 0.5); 
+            padding: 20px;
+            color: black;
+            font-size: 18px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <nav class="container">
+      <img src="Assets\Screenshot 2025-01-15 230631.png" 
+      class="logo" width="10" height="20" />
+    
+      <a href="#about-us" id="header-button" class="header-link">Home</a>
+      <a href="#our-factory" id="header-button-1" class="header-link">Our Factory</a>
+      <a href="#banner-auto-slide" id="header-button-2" class="header-link">Portofolio</a>
+      <a href="#message-us" id="header-button-3" class="header-link">Message Us</a>
+  </nav>
+
+    <header id="page-header">
+        <h1 id="welcome-user">Hi User</h1>
+        <h1 id="about-us">About Us</h1>
+      <div class="justify-text">
+
+        Sintesis adalah perusahaan terkemuka yang bergerak di bidang pembuatan plastic pellets berkualitas tinggi.
+      <br/>
+        Dengan dedikasi untuk inovasi dan keberlanjutan, kami menyediakan solusi material plastik yang dirancang untuk mendukung berbagai industri, mulai dari manufaktur, otomotif, hingga kebutuhan rumah tangga.
+      <br/>
+        Didukung oleh teknologi mutakhir dan tim ahli yang berpengalaman, Sintesis memastikan setiap produk yang dihasilkan memenuhi standar internasional dalam hal kekuatan, keawetan, dan ramah lingkungan.
+      <br/>   
+        Sintesis juga fokus pada pengembangan material plastik ramah lingkungan dengan pendekatan daur ulang dan pengurangan limbah.
+      <br/>  
+        Sintesis hadir untuk memberikan nilai lebih bagi pelanggan kami dengan menghadirkan solusi material plastik terbaik yang mendukung kemajuan teknologi dan pembangunan yang berkelanjutan. 
+   
+      </div>
+      </header>
+
+    <div class="slideshow-container">
+      <img id="banner-auto-slide"
+        class="img-slideshow"
+        src="Assets\sintesis-high-resolution-logo.png" 
+        width="1200" height="578">
+      <img 
+        class="img-slideshow"
+        src="Assets\Plastic-Pellet-Exporter.png"
+          width="1200" height="578">
+      <img
+          class="img-slideshow"
+          src="Assets\clear pallets.png" 
+          width="1200" height="578">      
+    </div>
+
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+          showDivs(slideIndex += n);
+      }
+      function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("img-slideshow");
+          if (n > x.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = x.length}
+          for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";  
+          }
+          x[slideIndex-1].style.display = "block";  
+          console.log(slideIndex);
+      }
+
+      setInterval(() => {
+                plusDivs(1);
+            }, 2000);
+
+    </script>
+
+    <nav class="our-factory">
+    <h2 id="our-factory">Our Factory</h2>
+    <p>
+    <div class="circle">
+      <img src="Assets\Anyer.jpg" alt="Anyer">
+      <p>Anyer</p>
+    </div>
+    <div class="circle">
+      <img src="Assets\bekasi.jpg" alt="Bekasi">
+      <p>Bekasi</p>
+    </div>
+    <div class="circle">
+      <img src="Assets\karawang.jpg" alt="Karawang">
+      <p>Karawang</p>
+    </div>
+  </p>
+    </nav>
+
+<div class="container1">
+    <div class="form-container">
+        <h2 id="message-us">Message Us</h2>
+        <form id="form" onsubmit="return displayResult();">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required>
+
+            <label for="dob">Tanggal Lahir:</label>
+            <input type="date" id="dob" required>
+
+            <label for="gender">Jenis Kelamin:</label>
+            <select id="gender" required>
+                <option value="Pria">Pria</option>
+                <option value="Wanita">Wanita</option>
+                <option value="Helikopter">Helikopter</option>
+            </select>
+            <br/>
+            <label for="message">Pesan:</label>
+            <textarea id="message" rows="4" required></textarea>
+
+            <button id="submit1" type="submit">Kirim</button>
+        </form>
+    </div>
+
+    <div class="result-container">
+        <h2>Message Result</h2>
+        <div id="result">
+            <p class="current-time" id="current-time"></p>
+            <p id="result-name"></p>
+            <p id="result-dob"></p>
+            <p id="result-gender"></p>
+            <p id="result-message"></p>
+        </div>
+    </div>
+</div>
+      
+    <script>
+        const greetingElement = document.getElementById("welcome-user");
+        const formElement = document.getElementById("form");
+        const nameInput = document.getElementById("name");
+
+        formElement.addEventListener('submit', function(event) { 
+        event.preventDefault(); 
+        const name = nameInput.value.trim();
+        if (name) {
+        greetingElement.textContent = `Hi ${name}`;
+        } else {
+        greetingElement.textContent = 'Hi User';
+        }
+        nameInput.value = '';
+        });
+
+    </script>
+
+    <script>
+    function displayResult() {
+        const currentTime = new Date().toLocaleString();
+        document.getElementById('current-time').textContent = "Waktu Kirim: " + currentTime;
+        const name = document.getElementById('name').value;
+        const dob = document.getElementById('dob').value;
+        const gender = document.getElementById('gender').value;
+        const message = document.getElementById('message').value;
+
+        document.getElementById('result-name').textContent = "Nama: " + name;
+        document.getElementById('result-dob').textContent = "Tanggal Lahir: " + dob;
+        document.getElementById('result-gender').textContent = "Jenis Kelamin: " + gender;
+        document.getElementById('result-message').textContent = "Pesan: " + message;
+
+        return false;
+    }
+</script>
+  <footer>
+  <p><span class="footer-text">© 2025 by Sintesis. All rights reserved. Created by M. Zaki F</span></p>
+  </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
+
